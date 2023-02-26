@@ -19,7 +19,7 @@ vector de tipus float.
 
 - Mètode resultatIMC: Aquest mètode determina el resultat del càlcul de l'IMC de l'usuari
 
--Mètode controlErrors: Aquest mètode serveix per a què les dades que introdueix l'usuari siguin correctes, demana un String un valor mínim i un màxim, 
+- Mètode controlErrors: Aquest mètode serveix per a què les dades que introdueix l'usuari siguin correctes, demana un String un valor mínim i un màxim, 
 si el nombre de tipus float introduit no està dins del rang demanat retorna un error.
 
 - Mètode tipusEntrenament: Aquest mètode mostra una llista de diferents tipus d'entrenaments i pregunta a l'usuari quin prefereix .
