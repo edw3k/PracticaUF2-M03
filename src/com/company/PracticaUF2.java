@@ -9,6 +9,9 @@ public class PracticaUF2 {
         menu();
     }
 
+    /**
+     * Menú principal
+     */
     public static void menu() {
         Scanner lector = new Scanner(System.in);
         int opcio;
@@ -49,6 +52,10 @@ public class PracticaUF2 {
         } while (opcio != 7);
     }
 
+    /** Pregunta les dades bàsiques
+     *
+     * @return dades ArrayList amb les dades bàsiques
+     */
     public static ArrayList<String> dadesBasiques() {
         ArrayList<String> dades = new ArrayList<>();
         Scanner lector = new Scanner(System.in);
@@ -68,10 +75,18 @@ public class PracticaUF2 {
         return dades;
     }
 
+    /** Pregunta la massa corporal
+     * @param // float[] dadesMassa
+     * @return dadesIMC Array amb la massa corporal
+     */
     public static float calcularMassaCorporal(float[] dadesMassa) {
         return dadesMassa[2] / (dadesMassa[3] * dadesMassa[3]);
     }
 
+    /** Pregunta la massa corporal
+     *
+     * @return dadesIMC Array amb la massa corporal
+     */
     public static float[] preguntarMassaCorporal() {
         Scanner lector = new Scanner(System.in);
         float[] dadesMassa = new float[4];
@@ -101,6 +116,12 @@ public class PracticaUF2 {
 
         return dadesMassa;
     }
+
+    /** Calcula el resultat de l'IMC
+     *
+     * @param dadesMasa Array amb la massa corporal
+     * @return resultatIMC String amb el resultat de l'IMC
+     */
     public static String resultatIMC(float[] dadesMasa) {
         float imc = calcularMassaCorporal(dadesMasa);
         if (imc < 18.5) {
@@ -118,6 +139,13 @@ public class PracticaUF2 {
         }
     }
 
+    /** Controla els errors de les dades introduïdes
+     *
+     * @param missatge String amb el missatge a mostrar
+     * @param min Int. amb el valor mínim
+     * @param max Int. amb el valor màxim
+     * @return dades float amb la dada introduïda
+     */
     public static float controlErrors(String missatge, float min, float max) {
         Scanner lector = new Scanner(System.in);
         float numero = 0;
@@ -139,6 +167,9 @@ public class PracticaUF2 {
         return numero;
     }
 
+    /** Mostra el tipus d'entrenament
+     *
+     */
     public static int tipusEntrenament() {
         int entrenament = 0;
         Scanner lector = new Scanner(System.in);
@@ -147,6 +178,11 @@ public class PracticaUF2 {
         lector.nextLine();
         return entrenament;
     }
+
+    /** Retorna el tipus d'entrenament triat per l'usuari.
+        * @param entrenament el número que indica el tipus d'entrenament triat per l'usuari
+        * @return un número que correspon al tipus d'entrenament triat per l'usuari
+     */
 
     public static int entrenamentEscollit(int entrenament) {
         if (entrenament == 1) {
@@ -158,6 +194,10 @@ public class PracticaUF2 {
         }
     }
 
+    /** Retorna el tipus d'entrenament indicat per l'usuari dependent de l'IMC i el tipus d0entrenament escollit.
+        * @param imc de tipus float que indica el resultat de l'IMC
+        * @return un número que correspon al tipus d'entrenament triat per l'usuari
+     */
     public static String entrenamentPersonalitzat(float[] imc) {
         int a = 0;
         int entrenament = entrenamentEscollit(a);
@@ -229,7 +269,7 @@ public class PracticaUF2 {
             return entrenamentPersonalitzat;
         } else if (calcularMassaCorporal(imc) <= 30.00 || calcularMassaCorporal(imc) <= 40.00 && entrenament == 3) {
             entrenamentPersonalitzat = """
-                    **Planificaci
+                    **Planificació
                     Roda abdominal - 5 repeticions
                     Elevació de cames - 10 repeticions
                     Abdominal estàtic - 5 repeticions""";
@@ -238,6 +278,12 @@ public class PracticaUF2 {
         return entrenamentPersonalitzat;
     }
 
+
+    /** Mostra el planning final
+     *
+     * @param dades ArrayList amb les dades bàsiques
+     * @param dadesIMC Array amb la massa corporal
+     */
     public static void planningFinal(ArrayList<String>dades, float[] dadesIMC){
         System.out.println("Nom: "+dades.get(0));
         System.out.println("Primer cognom: "+dades.get(1));
